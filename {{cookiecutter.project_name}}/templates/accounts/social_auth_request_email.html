@@ -1,0 +1,19 @@
+{% raw %}{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-0 col-md-3 col-lg-3"></div>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <h4>Please provide your email to create an account.</h4>
+        <form action="" method="POST">
+            <div class="form-group">
+                <input type="email" name="email" placeholder="email@example.com" class="form-control"/>
+            </div>
+            <input type="submit" name="submit" value="Submit" class="btn btn-primary"/>
+        </form>
+    </div>
+    <div class="col-sm-0 col-md-3 col-lg-3"></div>
+</div>
+
+{% endblock %}{% endraw %}

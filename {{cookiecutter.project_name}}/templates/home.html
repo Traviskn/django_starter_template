@@ -1,0 +1,18 @@
+{% raw %}{% extends "base.html" %}
+
+{% load render_bundle from webpack_loader %}
+
+{% block stylesheets %}
+  {% render_bundle "home" "css" %}
+{% endblock stylesheets %}
+
+{% block content %}
+<div class="jumbotron">
+  <div id="js-app" class="container">
+  </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+  {% render_bundle "home" "js" %}
+{% endblock scripts %}{% endraw %}

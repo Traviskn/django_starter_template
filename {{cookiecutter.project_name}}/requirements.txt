@@ -1,0 +1,4 @@
+# Heroku expects requirements.txt file at project root.
+# See: https://devcenter.heroku.com/articles/python-pip#the-basics
+
+-r requirements/production.txt

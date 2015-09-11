@@ -1,0 +1,40 @@
+{% raw %}{% extends "base.html" %}
+
+{% block navbar %}
+    {% include "partials/_navbar.html" %}
+{% endblock navbar %}
+
+{% block content %}
+
+<h1>Your Profile</h1>
+
+<div class="row">
+    <div class="col-sm-0 col-md-3 col-lg-3"></div>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <ul class="list-group">
+            <li class="list-group-item">Email: {{ user.email }}</li>
+            <li class="list-group-item">Date Joined: {{ user.date_joined }}</li>
+        </ul>
+        {% if user.has_usable_password %}
+            <a href="{% url 'accounts:password_change' %}" class="btn btn-danger">Change Password</a>
+        {% endif %}
+        <br/>
+        <br/>
+        <form action="{% url 'accounts:profile' %}" method="post">{% csrf_token %}
+            <span class="text-danger">{{ form.non_field_errors }}</span>
+            {% for field in form %}
+                <div class="form-group">
+                    <span class="text-danger">{{ field.errors }}</span>
+                    {{ field.label_tag }} {{ field }}
+                </div>
+            {% endfor %}
+            <div class="form-group">
+                <input type="submit" value="Update Profile" class="btn btn-primary"/>
+            </div>
+        </form>
+
+    </div><!-- col -->
+    <div class="col-sm-0 col-md-3 col-lg-3"></div>
+</div><!-- row -->
+
+{% endblock content %}{% endraw %}

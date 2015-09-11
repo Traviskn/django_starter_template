@@ -1,0 +1,70 @@
+{% raw %}{% load render_bundle from webpack_loader %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>
+            {% block title %}
+                {% endraw %}{{cookiecutter.project_name}}{% raw %}
+            {% endblock title %}
+        </title>
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- Latest compiled and minified Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+        {% block stylesheets%}
+        {% endblock stylesheets %}
+    </head>
+
+    <body>
+        <header>
+        {% block navbar %}
+            {% include "partials/_navbar.html" %}
+        {% endblock navbar %}
+        </header>
+
+        <main class="text-center">
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                {% if message.tags == 'success'%}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% elif message.tags == 'error'%}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% else %}
+                    <div class="alert alert-info">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% block content %}
+        {% endblock content %}
+        </main>
+
+        <footer>
+        {% block footer %}
+            <nav class="navbar navbar-default navbar-fixed-bottom">
+              <div class="container">
+                <p class="navbar-text">&copy; {% now "Y" %}</p>
+              </div>
+            </nav>
+        {% endblock footer %}
+        </footer>
+    </body>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    {% block scripts %}
+    {% endblock scripts %}
+</html>{% endraw %}

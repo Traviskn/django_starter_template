@@ -1,0 +1,9 @@
+venv
+__pycache__
+*.pyc
+*.log
+static_deploy
+db.sqlite3
+.env
+node_modules
+webpack-stats.json

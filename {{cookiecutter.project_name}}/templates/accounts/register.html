@@ -1,0 +1,58 @@
+{% raw %}{% extends "base.html" %}
+
+{% block navbar %}
+    {% include "partials/_navbar.html" %}
+{% endblock navbar %}
+
+{% block content %}
+    <h1>Please Register</h1>
+
+    <div class="row">
+        <div class="col-sm-0 col-md-3 col-lg-3"></div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <form action="{% url 'accounts:register' %}" method="post" autocomplete="on">{% csrf_token %}
+                <span class="text-danger">{{ form.non_field_errors }}</span>
+                <div class="form-group">
+                    <span class="text-danger">{{ form.username.errors }}</span>
+                    {{ form.username.label_tag }} {{ form.username }}
+                </div>
+                <div class="form-group">
+                    <span class="text-danger">{{ form.email.errors }}</span>
+                    {{ form.email.label_tag }} {{ form.email }}
+                </div>
+                <div class="form-group">
+                    <span class="text-danger">{{ form.password1.errors }}</span>
+                    {{ form.password1.label_tag }} {{ form.password1 }}
+                </div>
+                <div class="form-group">
+                    <span class="text-danger">{{ form.password2.errors }}</span>
+                    {{ form.password2.label_tag }} {{ form.password2 }}
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Register" class="btn btn-primary btn-lg"/>
+                </div>
+            </form>
+        </div><!-- col -->
+        <div class="col-sm-0 col-md-3 col-lg-3"></div>
+    </div><!-- row -->
+
+    <hr />
+    <h4>Register With Your Social Account</h4>
+    <hr />
+
+    <div class="row">
+        <div class="col-sm-0 col-md-3 col-lg-3"></div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <a class="btn btn-primary" href="{% url 'social:begin' 'facebook' %}?next={% url 'home' %}">
+                Login with <i class="fa fa-facebook fa-lg"></i>
+            </a>
+            <a class="btn btn-danger" href="{% url 'social:begin' 'google-oauth2' %}?next={% url 'home' %}">
+            Login with <i class="fa fa-google fa-lg"></i>
+            </a>
+            <a class="btn btn-primary" href="{% url 'social:begin' 'twitter' %}?next={% url 'home' %}">
+            Login with <i class="fa fa-twitter fa-lg"></i>
+            </a>
+        </div><!-- col -->
+        <div class="col-sm-0 col-md-3 col-lg-3"></div>
+    </div><!-- row -->
+{% endblock %}{% endraw %}
