@@ -49,7 +49,7 @@ This is a [cookiecutter](https://github.com/audreyr/cookiecutter) template for [
   ```
 
 4. Create a .env file and fill out the required environment variables. You probably shouldn't track it in version control, so I've added it to the .gitignore for you already.
-  * You will need to configure your database and put it's access url in the .env file. If you're on a Mac, I highly recommend [postgres.app](http://postgresapp.com/).
+  * You will need to configure your database and put its access url in the .env file. If you're on a Mac, I highly recommend [postgres.app](http://postgresapp.com/).
   * You need to head over to the developer consoles for [Facebook](https://developers.facebook.com/), [Twitter](https://apps.twitter.com/), and [Google](https://console.developers.google.com/) to register your app then get tokens and secrets for each provider that you can put into your .env file.  You can enter some dummy values for now if you'd rather do this later.
   * Here's an example .env file you might use for development:
   ```

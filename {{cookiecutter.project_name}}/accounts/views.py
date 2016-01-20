@@ -37,9 +37,7 @@ def verify_email(request, email, token):
         if security_details.is_token_valid(token):
             user.is_active = True
             valid_link = True
-    except User.DoesNotExist:
-        pass  # simply means an invalid link
-    except SecurityDetails.DoesNotExist:
+    except (User.DoesNotExist, SecurityDetails.DoesNotExist):
         pass  # simply means an invalid link
 
     # allow the user to request another verification email

@@ -19,14 +19,14 @@ var config = {
   module: {
     preLoaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         loaders: ["eslint-loader"]
       }
     ],
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         loaders: ["babel"]
       }, {
