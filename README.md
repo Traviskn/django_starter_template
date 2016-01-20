@@ -1,5 +1,7 @@
 # Readme #
 
+WARNING: The last time I worked with this template was in September 2015, some things may be out of date
+
 This is a [cookiecutter](https://github.com/audreyr/cookiecutter) template for [Django](https://www.djangoproject.com/) 1.8 and Python 3.4.  I use it for many of my personal projects.
 
 ## Features ##
